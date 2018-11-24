@@ -17,6 +17,8 @@ public class User {
     @NotNull(message = "Phone number should have a value")
     private String phoneNo;
 
+    public User(){ }
+
     public User(String userId, String userName, String email, String phoneNo) {
         this.userId = userId;
         this.userName = userName;

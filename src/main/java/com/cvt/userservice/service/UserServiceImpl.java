@@ -24,17 +24,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(User user) {
-        userDal.saveUser(user);
+    public User saveUser(User user) {
+        return userDal.saveUser(user);
     }
 
     @Override
-    public void updateUserById(String userId, User user) {
-        userDal.updateUserById(userId, user);
+    public User updateUserById(String userId, User user) {
+        return userDal.updateUserById(userId, user);
     }
 
     @Override
-    public void deleteUser(String userId) {
-        userDal.deleteUser(userId);
+    public User deleteUser(String userId) {
+        return userDal.deleteUser(userId);
     }
 }

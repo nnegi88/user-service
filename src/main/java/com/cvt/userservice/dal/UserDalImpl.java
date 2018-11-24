@@ -30,19 +30,21 @@ public class UserDalImpl implements UserDal {
     }
 
     @Override
-    public void saveUser(User user) {
-        mongoTemplate.save(user);
+    public User saveUser(User user) {
+        return mongoTemplate.save(user);
     }
 
     @Override
-    public void updateUserById(String userId, User user) {
-        User updatedUser = getUserById(userId);
-        updatedUser = user;
-        mongoTemplate.save(updatedUser);
+    public User updateUserById(String userId, User user) {
+        User oldUser = getUserById(userId);
+        oldUser = user;
+        return saveUser(user);
     }
 
     @Override
-    public void deleteUser(String userId) {
-        mongoTemplate.remove(getUserById(userId));
+    public User deleteUser(String userId) {
+        User user = getUserById(userId);
+        mongoTemplate.remove(user);
+        return user;
     }
 }
